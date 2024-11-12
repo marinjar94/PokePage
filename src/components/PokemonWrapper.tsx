@@ -10,7 +10,7 @@ const PokemonWrapper: React.FC<PokemonWrapperProps> = ({ inputValue }) => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon/'+inputValue)
+    fetch('https://pokeapi.co/api/v2/pokemon/'+inputValue.toLowerCase())
       .then(response => response.json())
       .then(data => {
         setData(data);
