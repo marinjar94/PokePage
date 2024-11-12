@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import PokemonName from './PokemonName.tsx';
 import PokemonSprite from './PokemonSprite.tsx';
-import { pokemonData } from './types';
+import { pokemonData, PokemonWrapperProps } from './types';
 
-const App: React.FC = () => {
+const PokemonWrapper: React.FC<PokemonWrapperProps> = ({ inputValue }) => {
+
   const [data, setData] = useState<pokemonData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon/pikachu')
+    fetch('https://pokeapi.co/api/v2/pokemon/'+inputValue)
       .then(response => response.json())
       .then(data => {
         setData(data);
@@ -19,10 +20,10 @@ const App: React.FC = () => {
         setError(error.message);
         setLoading(false);
       });
-  }, []);
+  }, [inputValue]);
 
   if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (error) return <div>Oops, no pokemon found with the name: {inputValue}. Try another name!</div>;
 
   return (
     <div>
@@ -32,4 +33,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default PokemonWrapper;

@@ -1,16 +1,24 @@
-import { useState } from 'react'
-import './App.css'
+import React,{ useState } from 'react'
 import PokemonWrapper from './components/PokemonWrapper.tsx'
+import './App.css';
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [inputValue, setInputValue] = useState<string>('pikachu');
+  const [triggerValue, setTriggerValue] = useState<string>('pikachu');
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setInputValue(event.target.value);
+  };
+  const handleButtonClick = () => { 
+    setTriggerValue(inputValue); 
+  };
 
   return (
     <>
-      <PokemonWrapper/>
+      <PokemonWrapper inputValue = {triggerValue}/>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+      <input className="PokeInput" type="text" value={inputValue} onChange={handleInputChange} />
+      <button onClick={handleButtonClick}>Catch a Pokemon!</button>
       </div>
     </>
   )

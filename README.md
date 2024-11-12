@@ -2,4 +2,4 @@
 
 Run npm run dev to have local version
 
-TO DO: add Evolutions. Make it user have an input to choose Pokemon instead of Pikachu being the Default.
+TO DO: add Evolutions. Make it so searched pokemon are cached as to not make an extra api call

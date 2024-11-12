@@ -16,3 +16,7 @@ export interface PokeSpriteProp {
 export interface PokeNameProp {
     name: string;
 }
+
+export interface PokemonWrapperProps {
+    inputValue: string;
+}
