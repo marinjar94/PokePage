@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import './App.css'
-//import PokemonPhoto from './components/PokemonPhoto.tsx'
 import PokemonWrapper from './components/PokemonWrapper.tsx'
 function App() {
   const [count, setCount] = useState(0)

@@ -1,12 +1,9 @@
-interface PokeNameProp {
-  name: string;
-}
+import { PokeNameProp } from './types';
 
-// Functional component that takes a 'name' prop
 const PokeName = ({ name }: PokeNameProp) => {
     return (
       <div>
-        <h1 className="capitalizedText" >Hello, {name}!</h1>
+        <h1 className={name ? 'capitalizedText' : ''} >Hello, {name ? name : 'there. Please choose a Pokemon'}!</h1>
       </div>
     );
   };

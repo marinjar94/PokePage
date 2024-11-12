@@ -1,14 +1,10 @@
-interface PokeSpriteProp {
-  name: string;
-  sprite: string;
-}
+import { PokeSpriteProp } from './types';
 
-// Functional component that takes a 'name' prop
 const PokemonSprite = ({ sprite, name }: PokeSpriteProp) => {
     return (
       <img
       className="pokemonSprite"
-      src={sprite}
+      src={sprite ? sprite : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_DUEfivmCYTquWQZ_vo4fyd6bc8z6XvTgdA&s'}
       alt={name + " Sprite"} 
     />
     );

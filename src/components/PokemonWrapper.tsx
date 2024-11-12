@@ -1,19 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import PokemonName from './PokemonName.tsx';
 import PokemonSprite from './PokemonSprite.tsx';
-
-interface Data {
-  name: string;
-  sprites: Sprites; 
-  front_default: string;
-}
-
-interface Sprites {
-  front_default: string;
-}
+import { pokemonData } from './types';
 
 const App: React.FC = () => {
-  const [data, setData] = useState<Data | null>(null);
+  const [data, setData] = useState<pokemonData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
